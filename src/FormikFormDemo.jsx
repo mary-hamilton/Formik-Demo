@@ -22,10 +22,11 @@ const FormikFormDemo = ({ people, setPeople }) => {
           .required('Email is required')
           .email('Must be a valid email'),
       })}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={(values, { setSubmitting, resetForm }) => {
         setSubmitting(true);
-        setPeople([...people, values])
-        setSubmitting(false)
+        setPeople([...people, values]);
+        setSubmitting(false);
+        resetForm();
       }}
     >
       {({ handleSubmit, dirty, isValid, isSubmitting }) => (
